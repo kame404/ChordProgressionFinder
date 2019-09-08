@@ -1,0 +1,766 @@
+﻿<fw:AcrylicWindow x:Class="ChordProgressionFinder.ChordProgressionFinder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Soundplay"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        mc:Ignorable="d" FontFamily="/Resources/Flat.ttf#Flat"
+        Title="Chord Progression Finder" Height="600" Width="800" Background="{x:Null}" NoiseOpacity="0.01" >
+    <fw:AcrylicWindow.ContextMenu>
+        <fw:AcrylicContextMenu>
+            <MenuItem Header="Always On Top" IsCheckable="True" IsChecked="False" Checked="TopMost" Unchecked="UnTop">
+            </MenuItem>
+        </fw:AcrylicContextMenu>
+    </fw:AcrylicWindow.ContextMenu>
+        <Window.InputBindings>
+        <KeyBinding Command="{Binding C}" Key="C" />
+    </Window.InputBindings>
+    <Grid fw:PointerTracker.Enabled="True" Cursor="Arrow" Background="#00101010" ShowGridLines="True" >
+        <Grid Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="0" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    C    " Click="C" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" Command="{Binding C}"/>
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Cm   " Click="Cm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Cdim " Click="Cdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Caug " Click="Caug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Csus4 " Click="Csus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Csus2 " Click="Csus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   C7   " Click="C7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Cm7  " Click="Cm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  CM7  " Click="CM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="C7sus4" Click="C7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Cadd9 " Click="Cadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" CmM7 " Click="CmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" FontFamily="{DynamicResource FlatFont}" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Cdim7 " Click="Cdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  C69  " Click="C69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   C6   " Click="C6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="0" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Cm6  " Click="Cm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80F4511E" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    Db    " Click="Db" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Dbm   " Click="Dbm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dbdim " Click="Dbdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dbaug " Click="Dbaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dbsus4 " Click="Dbsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Dbsus2 " Click="Dbsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Db7   " Click="Db7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dbm7 " Click="Dbm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00"  />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" DbM7 " Click="DbM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="Db7sus4" Click="Db7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Dbadd9 " Click="Dbadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" DbmM7 " Click="DbmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dbdim7 " Click="Dbdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Db69  " Click="Db69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Db6  " Click="Db6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="1" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Dbm6  " Click="Dbm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FB8C00" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    D    " Click="D" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Dm   " Click="Dm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ddim " Click="Ddim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Daug " Click="Daug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Dsus4 " Click="Dsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Dsus2 " Click="Dsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   D7   " Click="D7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Dm7  " Click="Dm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  DM7  " Click="DM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="D7sus4" Click="D7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Dadd9 " Click="Dadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" DmM7 " Click="DmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ddim7 " Click="Ddim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  D69  " Click="D69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   D6   " Click="D6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="2" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Dm6  " Click="Dm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80FDD835" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    Eb    " Click="Eb" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Ebm   " Click="Ebm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ebdim " Click="Ebdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ebaug " Click="Ebaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ebsus4 " Click="Ebsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Ebsus2 " Click="Ebsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Eb7   " Click="Eb7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ebm7 " Click="Ebm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" EbM7 " Click="EbM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="Eb7sus4" Click="Eb7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Ebadd9 " Click="Ebadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" EbmM7 " Click="EbmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Ebdim7 " Click="Ebdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Eb69  " Click="Eb69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Eb6  " Click="Eb6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="3" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Ebm6  " Click="Ebm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80C0CA33" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    E    " Click="E" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Em   " Click="Em" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Edim " Click="Edim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Eaug " Click="Eaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Esus4 " Click="Esus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Esus2 " Click="Esus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   E7   " Click="E7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Em7  " Click="Em7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  EM7  " Click="EM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="E7sus4" Click="E7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Eadd9 " Click="Eadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" EmM7 " Click="EmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Edim7 " Click="Edim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  E69  " Click="E69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   E6   " Click="E6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="4" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Em6  " Click="Em6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#807CB342" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    F    " Click="F" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Fm   " Click="Fm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Fdim " Click="Fdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Faug " Click="Faug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Fsus4 " Click="Fsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Fsus2 " Click="Fsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   F7   " Click="F7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Fm7  " Click="Fm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  FM7  " Click="FM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="F7sus4" Click="F7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Fadd9 " Click="Fadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" FmM7 " Click="FmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Fdim7 " Click="Fdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  F69  " Click="F69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   F6   " Click="F6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="5" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Fm6  " Click="Fm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8043A047" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="   Gb   " Click="Gb" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gbm  " Click="Gbm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gbdim " Click="Gbdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gbaug " Click="Gbaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gbsus4 " Click="Gbsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Gbsus2 " Click="Gbsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gb7  " Click="Gb7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gbm7 " Click="Gbm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" GbM7 " Click="GbM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="Gb7sus4" Click="Gb7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Gbadd9 " Click="Gbadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" GbmM7 " Click="GbmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gbdim7 " Click="Gbdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gb69  " Click="Gb69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gb6  " Click="Gb6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="6" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gbm6  " Click="Gbm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#8000ACC1" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    G    " Click="G" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Gm   " Click="Gm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gdim " Click="Gdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gaug " Click="Gaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gsus4 " Click="Gsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Gsus2 " Click="Gsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   G7   " Click="G7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gm7  " Click="Gm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  GM7  " Click="GM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="G7sus4" Click="G7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Gadd9 " Click="Gadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" GmM7 " Click="GmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Gdim7 " Click="Gdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  G69  " Click="G69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   G6   " Click="G6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="7" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Gm6  " Click="Gm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#801E88E5" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="   Ab   " Click="Ab" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Abm  " Click="Abm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Abdim " Click="Abdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Abaug " Click="Abaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Absus4 " Click="Absus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Absus2 " Click="Absus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Ab7  " Click="Ab7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Abm7 " Click="Abm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" AbM7 " Click="AbM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="Ab7sus4" Click="Ab7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Abadd9 " Click="Abadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" AbmM7 " Click="AbmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Abdim7 " Click="Abdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Ab69  " Click="Ab69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Ab6  " Click="Ab6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="8" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Abm6  " Click="Abm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#803949AB" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    A    " Click="A" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Am   " Click="Am" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Adim " Click="Adim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Aaug " Click="Aaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Asus4 " Click="Asus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Asus2 " Click="Asus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   A7   " Click="A7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Am7  " Click="Am7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  AM7  " Click="AM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="A7sus4" Click="A7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Aadd9 " Click="Aadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" AmM7 " Click="AmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Adim7 " Click="Adim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  A69  " Click="A69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   A6   " Click="A6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="9" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Am6  " Click="Am6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#805E35B1" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="   Bb   " Click="Bb" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bbm  " Click="Bbm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bbdim " Click="Bbdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bbaug " Click="Bbaug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bbsus4 " Click="Bbsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Bbsus2 " Click="Bbsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bb7  " Click="Bb7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bbm7 " Click="Bbm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" BbM7 " Click="BbM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="Bb7sus4" Click="Bb7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Bbadd9 " Click="Bbadd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" BbmM7 " Click="BbmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bbdim7 " Click="Bbdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bb69  " Click="Bb69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bb6  " Click="Bb6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="10" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bbm6  " Click="Bbm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#808E24AA" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content="    B    " Click="B" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   Bm   " Click="Bm" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bdim " Click="Bdim" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Baug " Click="Baug" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bsus4 " Click="Bsus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Bsus2 " Click="Bsus2" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   B7   " Click="B7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bm7  " Click="Bm7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  BM7  " Click="BM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="B7sus4" Click="B7sus4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill" >
+                <Button Content=" Badd9 " Click="Badd9" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" BmM7 " Click="BmM7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content=" Bdim7 " Click="Bdim7" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  B69  " Click="B69" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="   B6   " Click="B6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="11" Margin="2,2,2,2" Stretch="Fill">
+                <Button Content="  Bm6  " Click="Bm6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#80D81B60" />
+            </Viewbox>
+            <Viewbox Grid.Row="0" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" >
+                <Button Content="" Click="CO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="1" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="DO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="2" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="EO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="FO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="4" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="GO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="5" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="AO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="6" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="BO4" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="CO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="8" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="DO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="EO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="10" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="FO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="GO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="12" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="AO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="13" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="BO5" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="14" Grid.Column="12" Margin="2,1,2,1" Stretch="Fill" >
+                <Button Content="" Click="CO6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="12" Margin="2,1,2,2" Stretch="Fill" >
+                <Button Content="" Click="DO6" Style="{StaticResource ButtonAccentRevealStyle}" Foreground="White" Background="#A0FFFFFF" />
+            </Viewbox>
+        </Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="22*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Row="1" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="DbO4" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="3" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="EbO4" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="7" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="GbO4" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="9" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="AbO4" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="11" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="BbO4" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="15" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="DbO5" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="17" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="EbO5" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="21" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="GbO5" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="23" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="AbO5" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="25" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="BbO5" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="29" Grid.Column="12" Margin="2,2,2,1" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="DbO6" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+            <Viewbox Grid.Row="31" Grid.Column="12" Margin="2,2,2,2" Stretch="Fill" Grid.RowSpan="2" >
+                <Button Content="" Click="EbO6" Style="{StaticResource ButtonRevealStyle}" Foreground="White" Background="#D0000000" FontFamily="/Soundplay;component/Resources/#Flat" />
+            </Viewbox>
+        </Grid>
+        <TextBlock Grid.Column="1"
+                       WindowChrome.ResizeGripDirection="BottomRight"
+                       Padding="1"
+                       VerticalAlignment="Bottom"
+                       Text="   " HorizontalAlignment="Right" FontFamily="/Soundplay;component/Resources/#Flat" Foreground="{x:Null}" FontSize="24"/>
+        <TextBlock Grid.Column="1"
+                       WindowChrome.ResizeGripDirection="BottomLeft"
+                       Padding="1"
+                       VerticalAlignment="Bottom"
+                       Text="  " HorizontalAlignment="Left" FontFamily="/Soundplay;component/Resources/#Flat" Foreground="{x:Null}" FontSize="24"/>
+    </Grid>
+</fw:AcrylicWindow>
